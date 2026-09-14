@@ -1,4 +1,18 @@
 'use strict';
+const passwordGate=document.getElementById('passwordGate');
+const passwordInput=document.getElementById('passwordInput');
+passwordInput.addEventListener('keydown',event=>{
+  if(event.key!=='Enter') return;
+  if(passwordInput.value==='18817962338'){
+    passwordGate.classList.add('is-hidden');
+    passwordGate.setAttribute('aria-hidden','true');
+  }else{
+    passwordInput.value='';
+    passwordInput.setAttribute('aria-invalid','true');
+    passwordInput.focus();
+  }
+});
+
 const screen=document.getElementById('screen');
 let theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light',mode='network';
 // Coordinates measured on the supplied 7680 x 4320 exports.
